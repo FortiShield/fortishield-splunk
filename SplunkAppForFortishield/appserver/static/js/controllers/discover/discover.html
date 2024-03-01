@@ -1,0 +1,73 @@
+<!-- Loading bar -->
+<div class="loader-bar" ng-show="loadingRing">
+  <div class="loader"></div>
+</div>
+
+<div ng-show="!loadingRing">
+  <div layout="row" ng-show="fromDashboard" class="div-cont">
+    <!--Print breadcumbs-->
+    <div class="div-bread">
+      <span class="wz-text-link cursor-pointer" ui-sref="{{breadcrumbs.ref}}"
+        >{{breadcrumbs.section}}</span
+      >
+      <span
+        class="wz-text-link cursor-pointer"
+        ng-if="breadcrumbs.agentName"
+        ui-sref="{{breadcrumbs.agentRef}}"
+        >/ {{breadcrumbs.agentName}} ({{breadcrumbs.agentId}})</span
+      >
+      <span ng-if="breadcrumbs.agentName">/ {{breadcrumbs.subSection}} </span>
+      <span ng-if="!breadcrumbs.agentName">/ {{breadcrumbs.subSection}} </span>
+    </div>
+    <!--Back to dashboard-->
+    <div class="div-dash">
+      <span
+        class="btn wz-button-empty"
+        ng-click="backToDashboard()"
+        aria-label="Dashboard">
+        <i class="fa fa-fw fa-table" aria-hidden="true"></i>&nbsp;Dashboard
+        <md-tooltip md-direction="bottom" class="wz-tooltip">
+          Back to the dashboard.
+        </md-tooltip>
+      </span>
+    </div>
+  </div>
+
+  <iframe
+    id="searchAndReporting"
+    frameborder="0"
+    scrolling="yes"
+    class="iframeSr"
+    src=""
+    iframe-onload="removeIFrameHeader()"></iframe>
+</div>
+
+<style>
+  .iframeSr {
+    width: calc(100% - 5px);
+    height: 87vh;
+    position: absolute;
+    overflow: scroll;
+  }
+
+  .div-cont {
+    background-color: rgb(242, 244, 245);
+    display: block;
+    height: 40px;
+  }
+
+  .div-bread {
+    padding-top: 10px;
+    padding-left: 20px;
+    float: left;
+  }
+
+  .div-dash {
+    padding-top: 5px;
+    margin-bottom: -6px;
+    text-align: right;
+    padding-right: 53px;
+    cursor: pointer;
+    float: right;
+  }
+</style>

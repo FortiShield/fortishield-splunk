@@ -1,0 +1,9 @@
+*.tar.gz
+sync.sh
+node_modules
+package-lock.json
+.vscode
+SplunkAppForFortishield/metadata/local.meta
+SplunkAppForFortishield/default/app.conf
+SplunkAppForFortishield/local/
+__pycache__/

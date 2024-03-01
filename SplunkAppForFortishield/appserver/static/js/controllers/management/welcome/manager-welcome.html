@@ -1,0 +1,88 @@
+<div
+  flex
+  layout="row"
+  layout-align="start stretch"
+  style="margin: 25px 15px 15px 15px">
+  <!-- Fortishield management card -->
+  <div class="euiFlexGrid euiFlexGrid--gutterLarge euiFlexGrid--halves">
+    <div layout="row" layout-padding>
+      <div
+        class="euiFlexGroup euiFlexGroup--gutterLarge euiFlexGroup--responsive">
+        <div class="euiFlexItem flex-50">
+          <div class="euiPanel euiPanel--paddingLarge">
+            <h3 class="euiTitle wc-title welcome-card-main-title">
+              Administration
+            </h3>
+            <div class="euiSpacer euiSpacer--m"></div>
+            <div
+              class="euiFlexGrid euiFlexGrid--gutterLarge euiFlexGrid--halves">
+              <wz-welcome-card
+                class="euiFlexItem"
+                logo="'/static/app/SplunkAppForFortishield/css/images/ruleset.svg'"
+                sub-title="'Ruleset'"
+                ui-sref="mg-rules"
+                current-tab="'rules'"
+                description="'Manage your Fortishield cluster ruleset.'"></wz-welcome-card>
+              <wz-welcome-card
+                class="euiFlexItem"
+                logo="'/static/app/SplunkAppForFortishield/css/images/groups.svg'"
+                sub-title="'Groups'"
+                ui-sref="mg-groups"
+                current-tab="'groups'"
+                description="'Manage your agent groups.'"></wz-welcome-card>
+              <wz-welcome-card
+                class="euiFlexItem"
+                logo="'/static/app/SplunkAppForFortishield/css/images/app_devtools.svg'"
+                sub-title="'Configuration'"
+                ui-sref="mg-conf"
+                current-tab="'configuration'"
+                description="'Manage your Fortishield cluster configuration.'"></wz-welcome-card>
+              <!--<wz-welcome-card class="euiFlexItem" logo="'/static/app/SplunkAppForFortishield/css/images/app_devtools.svg'" sub-title="'Edition'"
+              ui-sref='mg-edition' current-tab="'configuration'" description="'Modify the configuration of the ossec.conf file.'"></wz-welcome-card>-->
+            </div>
+          </div>
+        </div>
+        <div class="euiFlexItem">
+          <div class="euiPanel euiPanel--paddingLarge">
+            <h3 class="euiTitle wc-title welcome-card-main-title">
+              Status and reports
+            </h3>
+            <div class="euiSpacer euiSpacer--m"></div>
+            <div
+              class="euiFlexGrid euiFlexGrid--gutterLarge euiFlexGrid--halves">
+              <wz-welcome-card
+                class="euiFlexItem"
+                logo="'/static/app/SplunkAppForFortishield/css/images/app_monitoring.svg'"
+                sub-title="'Status'"
+                ui-sref="mg-status"
+                current-tab="'status'"
+                description="'Check your Fortishield cluster status.'"></wz-welcome-card>
+              <wz-welcome-card
+                class="euiFlexItem"
+                logo="'/static/app/SplunkAppForFortishield/css/images/app_logging.svg'"
+                sub-title="'Logs'"
+                ui-sref="mg-logs"
+                current-tab="'logs'"
+                description="'Logs from your Fortishield cluster.'">
+              </wz-welcome-card>
+              <wz-welcome-card
+                ui-sref="mg-monitoring"
+                class="euiFlexItem"
+                logo="'/static/app/SplunkAppForFortishield/css/images/app_index_pattern.svg'"
+                sub-title="'Cluster'"
+                current-tab="'monitoring'"
+                description="'Visualize your Fortishield cluster.'"></wz-welcome-card>
+              <wz-welcome-card
+                class="euiFlexItem"
+                logo="'/static/app/SplunkAppForFortishield/css/images/reporting.svg'"
+                sub-title="'Reporting'"
+                ui-sref="mg-reporting"
+                current-tab="'reporting'"
+                description="'Check your stored Fortishield reports.'"></wz-welcome-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

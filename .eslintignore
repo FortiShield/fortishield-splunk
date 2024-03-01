@@ -1,0 +1,3 @@
+node_modules/
+SplunkAppForFortishield/appserver/static/js/utils/codemirror
+SplunkAppForFortishield/appserver/static/js/libs/*
