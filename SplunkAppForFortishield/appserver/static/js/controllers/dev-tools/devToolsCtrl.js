@@ -104,7 +104,7 @@ define([
         this.$scope.send = () => this.send()
         this.$scope.help = () => {
           this.$window.open(
-            `https://documentation.fortishield.com/${this.appDocuVersion}/user-manual/api/reference.html`
+            `https://fortishield.github.io/documentation/${this.appDocuVersion}/user-manual/api/reference.html`
           )
         }
         this.$scope.exportOutput = () => this.exportOutput()

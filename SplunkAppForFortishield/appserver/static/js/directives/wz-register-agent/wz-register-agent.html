@@ -94,7 +94,7 @@
                     </md-tooltip>
                   </span>
                   sudo FORTISHIELD_MANAGER='{{config.managerIp}}' yum install
-                  https://packages.fortishield.com/4.x/yum/fortishield-agent-{{fortishieldVersion}}-1.x86_64.rpm
+                  https://packages.fortishield.github.io/4.x/yum/fortishield-agent-{{fortishieldVersion}}-1.x86_64.rpm
                 </div>
               </div>
               <!-- If Debian / Ubuntu -->
@@ -110,7 +110,7 @@
                     </md-tooltip>
                   </span>
                   curl -so fortishield-agent.deb
-                  https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_{{fortishieldVersion}}-1_amd64.deb
+                  https://packages.fortishield.github.io/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_{{fortishieldVersion}}-1_amd64.deb
                   && sudo FORTISHIELD_MANAGER='{{config.managerIp}}' dpkg -i
                   ./fortishield-agent.deb
                 </div>
@@ -149,7 +149,7 @@
                     </md-tooltip>
                   </span>
                   Invoke-WebRequest -Uri
-                  https://packages.fortishield.com/4.x/windows/fortishield-agent-{{fortishieldVersion}}-1.msi
+                  https://packages.fortishield.github.io/4.x/windows/fortishield-agent-{{fortishieldVersion}}-1.msi
                   -OutFile ${env:tmp}\fortishield-agent-{{fortishieldVersion}}.msi;
                   msiexec.exe /i ${env:tmp}\fortishield-agent-{{fortishieldVersion}}.msi /q
                   FORTISHIELD_MANAGER='{{config.managerIp}}'
@@ -169,7 +169,7 @@
                     </md-tooltip>
                   </span>
                   curl -so fortishield-agent.pkg
-                  https://packages.fortishield.com/4.x/osx/fortishield-agent-{{fortishieldVersion}}-1.pkg
+                  https://packages.fortishield.github.io/4.x/osx/fortishield-agent-{{fortishieldVersion}}-1.pkg
                   && sudo echo "FORTISHIELD_MANAGER='{{config.managerIp}}'" >
                   /tmp/fortishield_envs && sudo installer -pkg ./fortishield-agent.pkg
                   -target /

@@ -89,7 +89,7 @@ function updateAppConfFile() {
 
     [launcher]
     version = ${version}
-    author = info@fortishield.com
+    author = info@fortishield.github.io
     description = Fortishield helps you to gain deeper security visibility into your infrastructure by monitoring hosts at an operating system and application level.
 
     [package]

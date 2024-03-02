@@ -46,10 +46,10 @@ class PDF(FPDF):
         # Contact info
         self.set_y(12)
         self.cell(150)  # Move to the right
-        self.cell(0, 5, 'info@fortishield.com', 0, 0, 'R')
+        self.cell(0, 5, 'info@fortishield.github.io', 0, 0, 'R')
         self.ln()  # Break line
         self.cell(150)  # Move to the right
-        self.cell(0, 5, 'https://fortishield.com', 0, 0, 'R')
+        self.cell(0, 5, 'https://fortishield.github.io', 0, 0, 'R')
 
     # Page footer
     def footer(self):
@@ -883,7 +883,7 @@ class report(controllers.BaseController):
                                     ln=1, 
                                     align='C', 
                                     fill=False,
-                                    link=f'https://documentation.fortishield.com/{docu_version}/user-manual/reference/centralized-configuration.html'
+                                    link=f'https://fortishield.github.io/documentation/{docu_version}/user-manual/reference/centralized-configuration.html'
                                 )
                                 pdf.add_page()
                                 pdf.ln(20)

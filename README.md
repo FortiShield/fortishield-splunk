@@ -1,16 +1,16 @@
 # Splunk App for Fortishield
 
-[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://fortishield.com/community/join-us-on-slack/)
+[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://fortishield.github.io/community/join-us-on-slack/)
 [![Email](https://img.shields.io/badge/email-join-blue.svg)](https://groups.google.com/forum/#!forum/fortishield)
-[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://documentation.fortishield.com)
-[![Documentation](https://img.shields.io/badge/web-view-green.svg)](https://fortishield.com)
+[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://fortishield.github.io/documentation)
+[![Documentation](https://img.shields.io/badge/web-view-green.svg)](https://fortishield.github.io)
 
  The Fortishield App for Splunk offers an option to visualize _Fortishield Alerts_ and _API data_. Fortishield helps you to gain deeper security visibility into your infrastructure by monitoring hosts at an operating system and application level.
 * * *
 ![Overview](SplunkOverview.png)
 ### Documentation
 
-- [Fortishield App for Splunk installation guide](https://documentation.fortishield.com/current/deployment-options/splunk/index.html)
+- [Fortishield App for Splunk installation guide](https://fortishield.github.io/documentation/current/deployment-options/splunk/index.html)
 
 ## Branches
 
@@ -65,6 +65,6 @@ Find more information about this on the [LICENSE](LICENSE) file.
 
 ## References
 
--   [Fortishield website](https://fortishield.com)
--   [Fortishield documentation](https://documentation.fortishield.com)
+-   [Fortishield website](https://fortishield.github.io)
+-   [Fortishield documentation](https://fortishield.github.io/documentation)
 -   [Splunk documentation](http://docs.splunk.com/Documentation)

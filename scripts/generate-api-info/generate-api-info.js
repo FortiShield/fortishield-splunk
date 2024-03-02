@@ -29,7 +29,7 @@ const reFormatter = /--full/
 
 const OUTPUT_MODE_FULL = consoleInput.match(reFormatter) && true
 const FORTISHIELD_DOCUMENTATION_API_REFERENCE_URL =
-  'https://documentation.fortishield.com/current/user-manual/api/reference.html'
+  'https://fortishield.github.io/documentation/current/user-manual/api/reference.html'
 const OUTPUT_ENDPOINTS_FILENAME = `${
   (consoleInput.match(reFilename) || [])[1] || 'endpoints'
 }.json`

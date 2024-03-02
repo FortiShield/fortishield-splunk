@@ -1,0 +1,880 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Splunk AppInspect" failures="2" manual_checks="16" warnings="10" errors="0" skipped="89" tests="200" time="71.833584" timestamp="2024-03-02T00:00:33.991933">
+    <properties>
+      <property name="app_name" value="Fortishield"/>
+      <property name="included_tags" value="cloud"/>
+      <property name="excluded_tags" value=""/>
+    </properties>
+    <testcase classname="check_packaging_standards" name="check_that_extracted_splunk_app_contains_default_app_conf_file" time="0.001141">
+      <system-out>Check that the extracted Splunk App contains a default/app.conf file.</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_extracted_splunk_app_does_not_contain_files_with_invalid_permissions" time="0.038327">
+      <system-out>Check that the extracted Splunk App does not contain any files with incorrect permissions. Files must have the
+ owner's permissions include read and write (600).</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_extracted_splunk_app_does_not_contain_invalid_directories" time="0.073715">
+      <system-out>Check that the extracted Splunk App does not contain any directories with incorrect permissions. Directories and
+ subdirectories must have the owner's permissions set to r/w/x (700).</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_extracted_splunk_app_does_not_contain_prohibited_directories_or_files" time="0.118969">
+      <system-out>Check that the extracted Splunk App does not contain any directories or
+ files that start with a ., or directories that start with __MACOSX.</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_does_not_contain_files_outside_of_app" time="0.092827">
+      <system-out>Check that the Splunk App package does not contain any non-app files. Files within a valid app folder or valid
+ dependencies within a .dependencies folder are permitted, all other files are not.</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_extracts_to_visible_directory" time="7.8e-05">
+      <system-out>Check that the compressed artifact extracts to a directory that does not start with a . character.</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_has_read_permission" time="8.1e-05">
+      <system-out>Check that the Splunk app provided does not contain incorrect permissions.
+ Packages must have the owner's read permission set to r (400).</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_has_valid_static_dependencies" time="0.014574">
+      <system-out>Check that the Splunk App package contains only valid dependencies.
+ Dependencies are valid if a .dependencies directory contains only valid
+ app packages inside.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_name_does_not_start_with_period" time="0.000119">
+      <system-out>Check that the Splunk app provided does not start with a . character.</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_valid_compressed_file" time="6.8e-05">
+      <system-out>Check that the Splunk app provided a valid compressed file.</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_with_static_dependencies_has_exactly_one_app_folder" time="0.000525">
+      <system-out>Check that the Splunk App package with a .dependencies directory also contains exactly one valid app folder.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_valid_version_number" time="0.023695">
+      <system-out>Check that the extracted Splunk App contains a default/app.conf file that contains an [id] or [launcher] stanza with a version property that is formatted as Major.Minor.Revision.</system-out>
+      <warning message="check_messages.py">No `[id]` section found in app.conf file. File: default/app.conf</warning>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_requires_adobe_flash" time="0.011668">
+      <system-out>Check that the app does not use Adobe Flash files.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_extracted_splunk_app_does_not_contains_only_app_conf_file" time="0.000299">
+      <system-out>Check that the extracted Splunk App does not contain only app.conf</system-out>
+    </testcase>
+    <testcase classname="check_packaging_standards" name="check_that_splunk_app_package_with_static_dependencies_has_app_manifest" time="0.000531">
+      <system-out>Check that the Splunk App package with a .dependencies directory also
+ contains an app folder with an app.manifest.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_authentication_configuration_file" name="check_role_map_should_not_map_splunk_system_role" time="0.000535">
+      <system-out>Check that all map roles defined in authentication.conf do not map to splunk-system-role.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_authentication_configuration_file" name="check_saml_auth_should_not_turn_off_signed_assertion" time="0.000644">
+      <system-out>Check that saml-* stanzas in authentication.conf do not turn off signedAssertion property.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_authentication_configuration_file" name="check_scripted_authentication_has_valid_python_version_property" time="0.000763">
+      <system-out>Check that all the scripted authentications defined in authentication.conf are explicitly set the python.version to python3.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_authorize_configuration_file" name="check_authorize_conf_capability_not_modified" time="0.000507">
+      <system-out>Check that authorize.conf does not contain any modified capabilities.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_binary_files" name="check_idx_binary_compatibility" time="0.000692">
+      <system-out>Checks that binaries that are distributed to the IDX tier of a distributed Splunk platform deployment are compatible with aarch64.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_alert_actions_conf_for_alert_execute_cmd_properties" time="0.000784">
+      <system-out>Check that commands referenced in the alert.execute.cmd property of all alert actions are checked for compliance with Splunk Cloud security policy. Prevent alert_actions.conf from being used to execute malicious commands.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_authorize_conf_admin_all_objects_privileges" time="0.001333">
+      <system-out>Check that authorize.conf does not grant excessive administrative permissions to the user. Prevent roles from gaining unauthorized permissions.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_default_data_ui_file_allow_list" time="0.001561">
+      <system-out>Check that directories under data/ui contain only allowed files. Ensure unnecessary, unwanted files are not bundled in the app inappropriately.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_default_data_ui_manager_for_plain_text_credentials" time="0.0009">
+      <system-out>Check that directories under data/ui contain only allowed files. Identify for manual review items that might cause passwords to be stored in plaintext.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_distsearch_conf_for_concerning_replicated_file_size" time="0.000499">
+      <system-out>Check if concerningReplicatedFileSize in distsearch.conf is larger than 50 MB.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_indexes_conf_only_uses_splunk_db_variable" time="0.000477">
+      <system-out>Check that indexes defined in indexes.conf use relative paths starting with $SPLUNK_DB</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_batch_has_required_attributes" time="0.000431">
+      <system-out>Check that batch input has required attributes.
+ The following key/value pairs are required for batch inputs:
+ move_policy = sinkhole</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_batch" time="0.000871">
+      <system-out>Check that batch input accesses files in a permitted way.
+To be permissible, the batch input must meet the following criteria:
+ 1) The file path needs to match a file in the directory "$SPLUNK_HOME/var/spool/splunk/"
+ 2) The file name needs to be application specific "$SPLUNK_HOME/etc/apps/"
+ 3) The file name should not end with "stash" or "stash_new"</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_lookups_allow_list" time="0.000478">
+      <system-out>Check that lookups/ contains only approved file types (.csv, .csv.default, .csv.gz, .csv.tgz, .kmz) or files formatted as valid csv. Ensure malicious files are not passed off as lookup files.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_metadata_allow_list" time="0.000324">
+      <system-out>Check that the metadata/ and users/&lt;username&gt;/metadata directories do not contain any subdirectories and only contain .meta files. Ensure malicious files are not passed off as metadata files.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_scripted_inputs_python_version" time="0.000565">
+      <system-out>Check that python version is python3 for scripted inputs defined in inputs.conf.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_setup_xml" time="0.001029">
+      <system-out>Check that setup.xml does not exist in the app default or local folders.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_stanza_of_authentication_conf" time="0.00056">
+      <system-out>Check that only role-mapping stanza is allowed in authenticaiton.conf as long as it doesn't map users to a cloud-internal role.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_static_directory_file_allow_list" time="0.000601">
+      <system-out>Check that the static/ directory does not contains any subdirectories and contains only known file types. Ensure malicious files are not passed off as metadata files.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_audit_conf_deny_list" time="0.000491">
+      <system-out>Check that the app does not create audit.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_authorize_conf_for_tokens_auth" time="0.000478">
+      <system-out>Check that authorize.conf does not contain a [tokens_auth] stanza</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_bookmarks_conf_deny_list" time="0.00065">
+      <system-out>Check that the app does not create bookmarks.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_command_scripts_exist_for_cloud" time="0.000746">
+      <system-out>Check that custom search commands have an executable or script per
+ stanza.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_datatypesbnf_conf_deny_list" time="0.000484">
+      <system-out>Check that the app does not create datatypesbnf.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_default_mode_conf_deny_list" time="0.000483">
+      <system-out>Check that the app does not create default-mode.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_deploymentclient_conf_deny_list" time="0.000604">
+      <system-out>Check that the app does not create deploymentclient.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_deployment_conf_deny_list" time="0.000781">
+      <system-out>Check that the app does not create deployment.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_for_binary_files_without_source_code" time="0.073002">
+      <system-out>Check that all executable binary files have matching source code. For any binary files, there
+ should be a source code provided with the same name. Or, there should be a decalaration of what the
+ binary file is all about in the app's REAMDE. Details for passing this check will be returned if you fail
+ it.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_for_index_volume_usage" time="0.000621">
+      <system-out>Check that indexes.conf does not declare volumes.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_for_inputs_fifo_usage" time="0.000412">
+      <system-out>Check that default/inputs.conf or local/inputs.conf or users/&lt;username&gt;/local/inputs.conf does not contain any fifo:// stanzas.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_for_java" time="0.011346">
+      <system-out>Check whether the app contains java files. Java files will be inspected
+ for compliance with Splunk Cloud security policy.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_for_perl" time="0.01149">
+      <system-out>Check if the app contains Perl scripts. Perl scripts will be inspected
+ for compliance with Splunk Cloud security policy.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_for_shell" time="1.502129">
+      <system-out>Check whether the app contains shell files. Shell files will be manually inspected
+ for compliance with Splunk Cloud security policy.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_health_conf_deny_list" time="0.000629">
+      <system-out>Check that the app does not create health.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_fschange" time="0.000418">
+      <system-out>Check that default/inputs.conf or local/inputs.conf or users/&lt;username&gt;/local/inputs.conf does not contain any fschange:// stanzas.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_http_global_usage" time="0.000401">
+      <system-out>Check that inputs.conf does not contain a [http] stanza</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_http_inputs" time="0.0004">
+      <system-out>Apps cannot ship a configured HEC token in inputs.conf. HEC tokens must be created by stack admins via ACS. Refer: https://docs.splunk.com/Documentation/Splunk/9.1.0/Data/UsetheHTTPEventCollectorRemove [http://] stanza from inputs.conf.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_remote_queue_monitor" time="0.00058">
+      <system-out>Check that inputs.conf does not have any remote_queue inputs.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_splunk_tcp" time="0.000544">
+      <system-out>Check that default/inputs.conf or local/inputs.conf or users/&lt;username&gt;/local/inputs.conf does not contain any splunktcp:// stanzas.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_splunktcptoken" time="0.000402">
+      <system-out>Check that inputs.conf does not contain a splunktcptoken stanza.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_ssl" time="0.000383">
+      <system-out>Check that inputs.conf does not have any SSL inputs.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_tcp" time="0.000387">
+      <system-out>Check that default/inputs.conf or local/inputs.conf or users/&lt;username&gt;/local/inputs.conf does not contain any tcp:// stanzas.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_inputs_conf_for_udp" time="0.000678">
+      <system-out>Check that inputs.conf does not have any UDP inputs.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_instance_cfg_conf_deny_list" time="0.00123">
+      <system-out>Check that the app does not create instance.cfg.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_introspection_of_cloud_filesystem" time="0.000516">
+      <system-out>Check that the app does not create crawl.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_java_sdk_version" time="0.011504">
+      <system-out>Check that Splunk SDK for Java is up-to-date.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_literals_conf_deny_list" time="0.000515">
+      <system-out>Check that the app does not create literals.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_messages_conf_deny_list" time="0.000653">
+      <system-out>Check that the app does not create messages.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_modular_inputs_scripts_exist_for_cloud" time="0.000472">
+      <system-out>Check that there is a script file in bin/ for each modular input
+ defined in README/inputs.conf.spec.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_passwords_conf_deny_list" time="0.00052">
+      <system-out>Check that the app does not create passwords.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_pubsub_conf_deny_list" time="0.000483">
+      <system-out>Check that the app does not create pubsub.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_scripted_inputs_cmd_path_pattern" time="0.001277">
+      <system-out>Check the cmd path pattern of scripted input defined in inputs.conf.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_segmenters_conf_deny_list" time="0.000482">
+      <system-out>Check that app does not contain segmenters.conf with Splunk-defined stanza.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_serverclass_conf_deny_list" time="0.000485">
+      <system-out>Check that the app does not create serverclass.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_serverclass_seed_xml_conf_deny_list" time="0.000595">
+      <system-out>Check that the app does not create serverclass.seed.xml.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_source_classifier_conf_deny_list" time="0.000898">
+      <system-out>Check that the app does not create source-classifier.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_sourcetypes_conf_deny_list" time="0.000782">
+      <system-out>Check that the app does not create sourcetypes.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_splunk_launch_conf_deny_list" time="0.000777">
+      <system-out>Check that the app does not create splunk-launch.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_telemetry_conf_deny_list" time="0.000672">
+      <system-out>Check that the app does not create telemetry.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_that_app_contains_any_windows_specific_components" time="0.001676">
+      <system-out>Check that the app contains MS Windows specific components, which will not
+ function correctly in Splunk Cloud whose OS should be Linux x64.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_that_no_configurations_of_default_source_type_in_props_conf" time="0.014139">
+      <system-out>Check that the app does not contain configurations of default source type in props.conf, which will overwrite the configurations in system/default/props.conf and may affect other apps.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_transforms_conf_for_external_cmd" time="0.000185">
+      <system-out>Check that transforms.conf does not contain any transforms with malicious
+ command scripts specified by external_cmd=&lt;string&gt; attribute.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_transforms_conf_for_external_cmd_cloud" time="0.000141">
+      <system-out>Check that transforms.conf does not contain any transforms with non-python malicious
+ command scripts specified by external_cmd=&lt;string&gt; attribute.</system-out>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_user_seed_conf_deny_list" time="0.000493">
+      <system-out>Check that the app does not create user-seed.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_wmi_conf_deny_list" time="0.000484">
+      <system-out>Check that the app does not create wmi.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_workload_pools_conf_deny_list" time="0.001239">
+      <system-out>Check that the app does not create workload_pools.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_cloud_simple_app" name="check_workload_rules_conf_deny_list" time="0.00055">
+      <system-out>Check that the app does not create workload_rules.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_frontend_libraries" name="check_for_splunk_dashboard_core" time="0.3477">
+      <system-out>Check that @splunk/dashboard-core is being used.</system-out>
+    </testcase>
+    <testcase classname="check_frontend_libraries" name="check_for_splunk_frontend_utility_components" time="0.254202">
+      <system-out>Check for usage of utility components.</system-out>
+    </testcase>
+    <testcase classname="check_frontend_libraries" name="check_for_splunk_js" time="0.333027">
+      <system-out>Check that SplunkJS is being used.</system-out>
+      <warning message="check_frontend_libraries.py">Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/dataService/dataService.js Line Number: 13, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/search/search-handler.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/inputs/time-picker.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/inputs/dropdown-input.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/map/map.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/viz/viz.js Line Number: 2, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/viz/viz.js Line Number: 3, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/viz/viz.js Line Number: 4, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/chart/gauge-chart.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/chart/single-value.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/chart/bar-chart.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/chart/pie-chart.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/chart/column-chart.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/chart/area-chart.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/chart/linear-chart.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/visualizations/table/table.js Line Number: 1, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/token-model/urlTokenModelService.js Line Number: 3, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/token-model/urlTokenModelService.js Line Number: 4, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/token-model/urlTokenModelService.js Line Number: 5, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/rawTableData/rawTableDataService.js Line Number: 2, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/services/rawTableData/rawTableDataService.js Line Number: 3, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/directives/wz-menu/wz-menu.js Line Number: 14, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/directives/wz-menu/wz-menu.js Line Number: 16, Splunk has begun gathering telemetry on apps submitted to appinspect, that utilize SplunkJS. Please ignore this warning as it has no impact to your Splunk app. Match: splunkjs/mvc File: appserver/static/js/controllers/settings/index/settingsIndexCtrl.js Line Number: 4, Suppressed 18 warning messages</warning>
+    </testcase>
+    <testcase classname="check_frontend_libraries" name="check_for_splunk_sui" time="0.344775">
+      <system-out>Check that SUI is being used.</system-out>
+    </testcase>
+    <testcase classname="check_frontend_libraries" name="check_for_splunk_visualizations" time="0.266629">
+      <system-out>Check that @splunk/visualizations is being used.</system-out>
+    </testcase>
+    <testcase classname="check_git_conflict_file" name="check_for_git_merge_conflict_in_app" time="0.125007">
+      <system-out>Check no git merge conflict is present</system-out>
+    </testcase>
+    <testcase classname="check_itsi_module" name="check_for_itsi_modules" time="2.4e-05">
+      <system-out>Check that the app does not contain an ITSI module.</system-out>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_console_log_injection_in_javascript" time="0.225026">
+      <system-out>Check if any sensitive data leakage in console log</system-out>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_iframe_in_javascript" time="0.669687">
+      <system-out>Check if the app contains possible iframe in JavaScript files, templates or html pages.</system-out>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_insecure_http_request_in_javascript" time="1.402406">
+      <system-out>Check if the app contain possible insecure http request in JavaScript files.</system-out>
+      <manual_check message="check_javascript_files.py">The following line will be inspected during code review. Match: g.open("GET",a,!0) File: appserver/static/js/libs/required-dom-to-image/dist/dom-to-image.min.js Line Number: 2, The following line will be inspected during code review. Match: request.open('GET', url, true) File: appserver/static/js/libs/required-dom-to-image/src/dom-to-image.js Line Number: 478, The following line will be inspected during code review. Match: xhr.open('GET', url) File: appserver/static/js/libs/file-saver/file-saver.js Line Number: 60</manual_check>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_reflected_xss_in_javascript" time="15.253607">
+      <system-out>Check if possible reflected xss in JavaScript</system-out>
+      <manual_check message="check_javascript_files.py">Possible html input text's value used in javascript. The following line will be inspected during code review. Match: const searchBar = $('#search-input-rules') File: appserver/static/js/controllers/management/rules/ruleset.js Line Number: 382</manual_check>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_remote_code_execution_in_javascript" time="0.710957">
+      <system-out>Check if the app contain possible remote code execution in JavaScript files.</system-out>
+      <manual_check message="check_javascript_files.py">The following line will be inspected during code review. Match: eval(d File: appserver/static/js/libs/material.js Line Number: 10, The following line will be inspected during code review. Match: eval(u.mdOnOpen File: appserver/static/js/libs/material.js Line Number: 12, The following line will be inspected during code review. Match: eval(this.$attrs.mdStartIndex File: appserver/static/js/libs/material.js Line Number: 13, The following line will be inspected during code review. Match: eval(o.mdItemSize File: appserver/static/js/libs/material.js Line Number: 13, The following line will be inspected during code review. Match: eval(n.mdForceHeight File: appserver/static/js/libs/material.js Line Number: 13, The following line will be inspected during code review. Match: eval(e File: appserver/static/js/libs/material.js Line Number: 13, The following line will be inspected during code review. Match: eval(h[t],n||{} File: appserver/static/js/libs/material.js Line Number: 14, The following line will be inspected during code review. Match: eval(o.mdChipTransclude File: appserver/static/js/libs/material.js Line Number: 14, The following line will be inspected during code review. Match: eval(Te File: appserver/static/js/libs/material.js Line Number: 14, The following line will be inspected during code review. Match: eval(i.ngValue File: appserver/static/js/libs/material.js Line Number: 16, The following line will be inspected during code review. Match: eval(this.$attrs[e] File: appserver/static/js/libs/material.js Line Number: 16, The following line will be inspected during code review. Match: eval(a.ngValue File: appserver/static/js/libs/material.js Line Number: 16, The following line will be inspected during code review. Match: eval(a File: appserver/static/js/libs/messages.js Line Number: 6, The following line will be inspected during code review. Match: eval(a File: appserver/static/js/libs/messages.js Line Number: 7, The following line will be inspected during code review. Match: eval(f.ngValue File: appserver/static/js/libs/angular.js Line Number: 287, The following line will be inspected during code review. Match: eval(d.ngChange File: appserver/static/js/libs/angular.js Line Number: 289, The following line will be inspected during code review. Match: eval(g File: appserver/static/js/libs/angular.js Line Number: 292, The following line will be inspected during code review. Match: eval(k File: appserver/static/js/libs/angular.js Line Number: 292, The following line will be inspected during code review. Match: eval(d.ngInit File: appserver/static/js/libs/angular.js Line Number: 293, The following line will be inspected during code review. Match: eval(this.$$attrs.ngModelOptions File: appserver/static/js/libs/angular.js Line Number: 308, The following line will be inspected during code review. Match: eval(m File: appserver/static/js/libs/angular.js Line Number: 317, The following line will be inspected during code review. Match: eval(attrs.wzEnter File: appserver/static/js/directives/wz-enter/wz-enter.js Line Number: 26</manual_check>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_stored_xss_in_javascript" time="0.000542">
+      <system-out>Check if possible stored xss in JavaScript</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_telemetry_metrics_in_javascript" time="1.443799">
+      <system-out>Check for usages of telemetry metrics in JavaScript</system-out>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_udp_communication_in_javascript" time="0.701148">
+      <system-out>Check if the app contains udp communication in JavaScript files.</system-out>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_for_weak_encryption_and_hashing_in_javascript" time="0.204205">
+      <system-out>Check if any weak encryption in JavaScript</system-out>
+    </testcase>
+    <testcase classname="check_javascript_files" name="check_telemetry_endpoint_usage_in_javascript" time="0.91144">
+      <system-out>Check that app does not use REST endpoint to collect and send telemetry data.</system-out>
+    </testcase>
+    <testcase classname="check_jquery_standards" name="check_hotlinking_splunk_web_libraries" time="0.306109">
+      <system-out>Check that the app files are not importing files directly from the
+ search head.</system-out>
+      <failure message="util.py">Embed all your app's front-end JS dependencies in the /appserver directory. If you import files from Splunk Web, your app might fail when Splunk Web updates in the future. Bad imports (HTML): ['simplexml/index'] File: /tmp/tmpmfbn1a3z/SplunkAppForFortishield/default/data/ui/html/index.html, Embed all your app's front-end JS dependencies in the /appserver directory. If you import files from Splunk Web, your app might be at risk of failing due to the removal of files when Splunk Web updates in the future. Risky imports: ['moment'] File: /tmp/tmpmfbn1a3z/SplunkAppForFortishield/appserver/static/js/libs/chart.js, Embed all your app's front-end JS dependencies in the /appserver directory. If you import files from Splunk Web, your app might be at risk of failing due to the removal of files when Splunk Web updates in the future. Risky imports: ['moment'] File: /tmp/tmpmfbn1a3z/SplunkAppForFortishield/appserver/static/js/libs/charts/chart.js</failure>
+    </testcase>
+    <testcase classname="check_jquery_standards" name="check_html_dashboards" time="0.001161">
+      <system-out>Check for HTML dashboards, which are deprecated.</system-out>
+      <failure message="check_jquery_standards.py">Your app includes HTML dashboard files in the data/ui/html directory, which must be removed. For more information about updating dashboards, see https://dev.splunk.com/enterprise/docs/developapps/visualizedata/updatejquery/ File: default/data/ui/html/index.html</failure>
+    </testcase>
+    <testcase classname="check_jquery_standards" name="check_simplexml_standards_version" time="0.01128">
+      <system-out>Check that the dashboards in your app have a valid version attribute.</system-out>
+    </testcase>
+    <testcase classname="check_limits_configuration_file" name="check_limits_conf" time="0.00092">
+      <system-out>Check that default/limits.conf or local/limits.conf or users/&lt;username&gt;/local/limits/conf has not been included.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_outputs_configuration_file" name="check_if_outputs_conf_exists" time="0.000615">
+      <system-out>Check that forwarding enabled in 'outputs.conf' is failed in cloud</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_5_0_deprecated_features" name="check_deprecated_eventtype_autodiscovering" time="0.002431">
+      <system-out>Check for use of findtypes SPL command in .conf files and SimpleXML.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_5_0_deprecated_features" name="check_for_savedsearches_used_in_eventtypes_conf" time="0.000596">
+      <system-out>Check that saved searches are not used within event types.
+ https://docs.splunk.com/Documentation/Splunk/5.0/ReleaseNotes/Deprecatedfeatures
+ https://docs.splunk.com/Documentation/Splunk/7.2.5/Knowledge/Abouteventtypes</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_0_deprecated_features" name="check_crawl_conf_deny_list" time="0.000634">
+      <system-out>Check that app does not contain crawl.conf as it was deprecated &amp; removed in Splunk.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_0_deprecated_features" name="check_for_viewstates_conf" time="0.000714">
+      <system-out>Check that viewstates.conf does not exist at local/viewstates.conf, default/viewstates.conf or users/&lt;username&gt;/local/viewstates.conf in the app. (http://docs.splunk.com/Documentation/Splunk/6.0/AdvancedDev/Migration#Viewstates_are_no_longer_supported_in_simple_XML)</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_1_deprecated_features" name="check_for_datamodel_acceleration_endpoint_usage" time="0.456656">
+      <system-out>Check that deprecated datamodel/acceleration is not used.
+ https://docs.splunk.com/Documentation/Splunk/6.2.0/RESTREF/RESTknowledge</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_2_deprecated_features" name="check_for_dashboard_xml_list_element" time="0.000734">
+      <system-out>Check Dashboard XML files for &lt;list&gt; element. &lt;list&gt;was deprecated in Splunk 6.2 and removed in Splunk 6.5.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_2_deprecated_features" name="check_for_earliest_time_and_latest_time_elements_in_dashboard_xml" time="0.00073">
+      <system-out>Check for the deprecated &lt;earliestTime&gt; and &lt;latestTime&gt; elements in dashboard XML files.As of version 6.2 these elements are replaced by &lt;earliest&gt; and &lt;latest&gt; elements.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_2_deprecated_features" name="check_for_populating_search_element_in_dashboard_xml" time="0.000849">
+      <system-out>Check for the deprecated &lt;populatingSearch&gt; and &lt;populatingSavedSearch&gt; elements in dashboard XML files.Use the &lt;search&gt; element instead.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_2_deprecated_features" name="check_for_simple_xml_row_grouping" time="0.000727">
+      <system-out>Check for the deprecated grouping attribute of row node in Simple XML files.Use the &lt;panel&gt; node instead.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_3_deprecated_features" name="check_for_run_script_alert_action" time="0.000634">
+      <system-out>Check for use of running a script in alert action</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_3_deprecated_features" name="check_for_django_bindings" time="0.00014">
+      <system-out>Check for use of Django bindings.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_3_deprecated_features" name="check_for_simple_xml_chart_element_with_deprecated_option_names" time="0.001014">
+      <system-out>Check for Simple XML &lt;chart&gt; panels with deprecated options
+ charting.axisLabelsY.majorTickSize or
+ charting.axisLabelsY.majorLabelVisibility.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_3_deprecated_features" name="check_for_simple_xml_option_element_with_name_previewresults" time="0.001904">
+      <system-out>Check for the deprecated &lt;option name='previewResults'&gt; in Simple XML
+ files.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_3_deprecated_features" name="check_for_simple_xml_search_related_element" time="0.000776">
+      <system-out>Check for the deprecated &lt;searchTemplate&gt;, &lt;searchString&gt;, &lt;searchName&gt;,
+ and &lt;searchPostProcess&gt; element in Simple XML files.
+ Use the &lt;search&gt; element instead.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_3_deprecated_features" name="check_for_simple_xml_seed_element" time="0.000685">
+      <system-out>Check for the deprecated &lt;seed&gt; option in Simple XML forms.
+ Use the &lt;initialValue&gt; element instead.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_4_deprecated_features" name="check_for_noninteger_height_option" time="0.000783">
+      <system-out>Check that &lt;option name="height"&gt; uses an integer for the value.Do not use &lt;option name="height"&gt;[value]px&lt;/option&gt;.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_4_deprecated_features" name="check_for_simple_xml_single_element_with_deprecated_option_names" time="0.000772">
+      <system-out>Check Simple XML files for &lt;single&gt; panels with deprecated options'additionalClass', 'afterLabel', 'beforeLabel', 'classField', 'linkFields','linkSearch', 'linkView'</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_4_deprecated_features" name="check_web_conf_for_simple_xml_force_flash_charting" time="0.000682">
+      <system-out>Check that web.conf does not use the simple_xml_force_flash_chartingproperty.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_4_deprecated_features" name="check_web_conf_for_simple_xml_module_render" time="0.000749">
+      <system-out>Check that web.conf does not use the simple_xml_module_renderproperty.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_4_deprecated_features" name="check_for_splunk_js_d3chartview" time="0.256352">
+      <system-out>Checks that views are not importing d3chartview.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_4_deprecated_features" name="check_for_splunk_js_googlemapsview" time="0.270627">
+      <system-out>Checks that views are not importing googlemapsview.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_5_deprecated_features" name="check_for_dashboard_xml_option_element_with_deprecated_attribute_value" time="0.000717">
+      <system-out>Check Dashboard XML files for &lt;option&gt; element with the deprecated option value "refresh.auto.interval"
+ i.e. &lt;option name="refresh.auto.interval"&gt;</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_5_deprecated_features" name="check_for_splunk_js_header_and_footer_view" time="0.400149">
+      <system-out>Checks that views are not importing splunkjs/mvc/headerview or splunkjs/mvc/footerrview.
+ These are replaced by LayoutView in Splunk 6.5. LayoutView is not backwards compatible to Splunk 6.4 or earlier.
+ Only use LayoutView if you are only targeting Splunk 6.5 or above.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_6_deprecated_features" name="check_for_autolb_setting_in_outputs_conf" time="0.000486">
+      <system-out>Check removed support for setting autoLB in outputs.conf</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_6_6_deprecated_features" name="check_for_app_install_endpoint" time="0.42077">
+      <system-out>Check apps/appinstall usages</system-out>
+    </testcase>
+    <testcase classname="check_splunk_6_6_deprecated_features" name="check_for_displayrownumbers_in_simple_xml" time="0.000919">
+      <system-out>Check existence for displayRowNumbers option in simple xml. This option
+ is no longer supported since Splunk 6.6.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_7_1_deprecated_features" name="check_for_input_command_usage" time="0.002327">
+      <system-out>Check for use of input SPL command in .conf files and SimpleXML.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_7_2_deprecated_features" name="check_for_deprecated_literals_conf" time="0.000605">
+      <system-out>Check deprecated literals.conf existence.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_7_3_deprecated_features" name="check_for_tscollect_command_usage" time="0.002246">
+      <system-out>Check for use of tscollect SPL command in .conf files and SimpleXML.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_8_0_deprecated_features" name="check_for_advanced_xml_module_elements" time="0.000901">
+      <system-out>Check that there is no Advanced XML, which was deprecated in Splunk Enterprise 6.3.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_splunk_8_0_deprecated_features" name="check_for_cherry_py_custom_controller_web_conf_endpoints" time="0.002185">
+      <system-out>Check for the existence of custom CherryPy endpoints, which must be upgraded tobe Python 3-compatible for the Splunk Enterprise 8.0.</system-out>
+      <warning message="check_messages.py">Update custom CherryPy endpoints to be Python 3-compatible for the Splunk Enterprise 8.0. Splunk Web, which CherryPy endpoints depend on, will support only Python 3.7. If you've finished your update, please disregard this message. File: appserver/controllers/manager.py, Update custom CherryPy endpoints to be Python 3-compatible for the Splunk Enterprise 8.0. Splunk Web, which CherryPy endpoints depend on, will support only Python 3.7. If you've finished your update, please disregard this message. File: appserver/controllers/api.py, Update custom CherryPy endpoints to be Python 3-compatible for the Splunk Enterprise 8.0. Splunk Web, which CherryPy endpoints depend on, will support only Python 3.7. If you've finished your update, please disregard this message. File: appserver/controllers/report.py, Update custom CherryPy endpoints to be Python 3-compatible for the Splunk Enterprise 8.0. Splunk Web, which CherryPy endpoints depend on, will support only Python 3.7. If you've finished your update, please disregard this message. File: appserver/controllers/queue.py, Update custom CherryPy endpoints to be Python 3-compatible for the Splunk Enterprise 8.0. Splunk Web, which CherryPy endpoints depend on, will support only Python 3.7. If you've finished your update, please disregard this message. File: appserver/controllers/config.py, Update custom CherryPy endpoints to be Python 3-compatible for the Splunk Enterprise 8.0. Splunk Web, which CherryPy endpoints depend on, will support only Python 3.7. If you've finished your update, please disregard this message. File: appserver/controllers/users.py</warning>
+    </testcase>
+    <testcase classname="check_splunk_8_0_deprecated_features" name="check_for_existence_of_python_code_block_in_mako_template" time="0.159987">
+      <system-out>Check for the existence of Python code block in Mako templates, which must be upgraded
+ to be Python 3-compatible for the Splunk Enterprise 8.0.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_8_0_deprecated_features" name="check_for_python_script_existence" time="0.020829">
+      <system-out>Check for the existence of Python scripts, which must be upgraded to be cross-compatible
+ with Python 2 and 3 for Splunk Enterprise 8.0.</system-out>
+      <warning message="check_splunk_8_0_deprecated_features.py">154 Python files found. Update these Python scripts to be cross-compatible with Python 2 and 3 for Splunk Enterprise 8.0. See https://docs.splunk.com/Documentation/Splunk/latest/Python3Migration/AboutMigration for more information. If you've finished your update, please disregard this message.</warning>
+    </testcase>
+    <testcase classname="check_splunk_8_0_deprecated_features" name="check_for_removed_m2crypto_usage" time="0.002025">
+      <system-out>Check for the existence of the M2Crypto package usage, which is removed in the Splunk Enterprise 8.0.</system-out>
+    </testcase>
+    <testcase classname="check_splunk_9_0_deprecated_features" name="check_for_search_v1_endpoint" time="3.176228">
+      <system-out>Check search v1 deprecated API usages</system-out>
+    </testcase>
+    <testcase classname="check_web_configuration_file" name="check_web_conf" time="0.001138">
+      <system-out>Check that web.conf only defines [endpoint:] and [expose:]stanzas, with [expose:*] only containing pattern= and methods=.</system-out>
+    </testcase>
+    <testcase classname="check_modular_inputs" name="check_inputs_conf_spec_stanzas_has_python_version_property" time="0.000694">
+      <system-out>Check that all the modular inputs defined in inputs.conf.spec are explicitlyset the python.version to python3</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_json_files" name="check_validate_json_data_is_well_formed" time="0.023841">
+      <system-out>Check that all JSON files are well formed.</system-out>
+    </testcase>
+    <testcase classname="check_lookup_files" name="check_for_lookups_file_name" time="0.000992">
+      <system-out>Check that no two files/directories under the lookups directory have this naming pattern respectively:xxx and xxx.default - with the only difference in the .default extension.During the installation of an app in Splunk Cloud, a lookup file will be temporarily renamed to append an additional.default extension to it, which will cause error if a namesake file already exists.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_saved_searches" name="check_for_gratuitous_cron_scheduling" time="0.000712">
+      <system-out>check that savedsearches.conf searches are cron scheduledreasonably. Less than five asterisks should be used.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_saved_searches" name="check_for_real_time_saved_searches_for_cloud" time="0.014771">
+      <system-out>Check that no real-time pre-index saved searches are being used insavedsearches.conf. Real-time pre-index saved searches are extremelysystem intensive and should be avoided.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_saved_searches" name="check_for_sched_saved_searches_action_script_filename" time="0.000829">
+      <system-out>Check that savedsearch.conf stanzas do not contain action.script.filename option</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_saved_searches" name="check_for_sched_saved_searches_earliest_time" time="0.000699">
+      <system-out>Check that if a scheduled saved search in savedsearch.conf contains dispatch.earliest_time option, or if a scheduled saved search with auto summary enabled contains auto_summarize.dispatch.earliest_time option</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_saved_searches" name="check_for_sched_saved_searches_latest_time" time="0.000704">
+      <system-out>Check that if a savedsearch.conf stanza contains scheduling optionsit does contain a dispatch.latest_time</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_saved_searches" name="check_for_saved_searches_populate_lookup" time="0.000771">
+      <system-out>Check that savedsearch.conf stanza do not contain action.populate_lookup option`.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_custom_conf_replication" time="0.00218">
+      <system-out>Check that custom .conf files have a a matching conf_replication_include.&lt;conf_file_name&gt; value in server.conf, under the [shclustering] stanza, to ensure that configurations are synchronized across Search Head Clusters.</system-out>
+      <warning message="check_messages.py">App contains one or more custom configs but does not have a `[shclustering]` stanza in server.conf. File: default/server.conf</warning>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_for_default_splunk_app" time="0.000402">
+      <system-out>Check that id attribute under the package stanza in app.confdoes not match with the Splunk Default App names</system-out>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_for_trigger_stanza" time="0.001356">
+      <system-out>Check that default/app.conf, local/app.conf and all users/&lt;username&gt;/local/app.conf don't have a reload.&lt;CONF_FILE&gt;, where CONF_FILE is a non-custom conf. (https://docs.splunk.com/Documentation/Splunk/latest/Admin/Appconf#.5Btriggers.5D)</system-out>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_for_valid_package_id" time="0.001051">
+      <system-out>Check that the [package] stanza in app.conf has a valid id value.See https://docs.splunk.com/Documentation/Splunk/latest/Admin/Appconf for details.</system-out>
+      <warning message="check_messages.py">Splunk App packages doesn't contain `app.manifest file`. No `app.manifest` was found., No [id] stanza specified in app.conf. An id` attribute in the [id] stanza is required for app installation. Add an [id] stanza to app.conf with `name` attribute File: default/app.conf</warning>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_for_valid_ui_label" time="0.000529">
+      <system-out>Check that the default/app.conf or local/app.conf or users/&lt;username&gt;/local/app.conf contains a label key value pair in the [ui] stanza and the length is between 5 and 80 characters inclusive.</system-out>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_reload_trigger_for_all_custom_confs" time="0.000545">
+      <system-out>Check that custom config files have a corresponding reload trigger in app.conf. Without a reload trigger the app will request a restart on any change to the config file, which may be a negative experience for end-users.</system-out>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_no_install_source_checksum" time="0.000541">
+      <system-out>Check in default/app.conf, 'local/app.conf' and each users/&lt;username&gt;/local/app.conf,
+ that install_source_checksum not be set explicitly.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_no_install_source_local_checksum" time="0.000594">
+      <system-out>Check in default/app.conf, 'local/app.conf' and each `users/&lt;username/local/app.conf,
+ that install_source_local_checksum not be set explicitly.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_app_configuration_file" name="check_that_setup_has_not_been_performed" time="0.000119">
+      <system-out>Check that default/app.conf setting is_configured = False.</system-out>
+    </testcase>
+    <testcase classname="check_application_structure" name="check_that_local_does_not_exist" time="0.000115">
+      <system-out>Check that the 'local' directory does not exist. All configuration
+ should be in the 'default' directory.</system-out>
+    </testcase>
+    <testcase classname="check_application_structure" name="check_filenames_for_spaces" time="0.001243">
+      <system-out>Check that app has no .conf or dashboard filenames that contain spaces. Splunk software does not support such files.</system-out>
+    </testcase>
+    <testcase classname="check_application_structure" name="check_for_local_meta" time="0.000106">
+      <system-out>Check that the file 'local.meta' does not exist. All metadata
+ permissions should be set in 'default.meta'.</system-out>
+    </testcase>
+    <testcase classname="check_application_structure" name="check_that_app_name_config_is_valid" time="6.5e-05">
+      <system-out>Check that the app name does not start with digits</system-out>
+    </testcase>
+    <testcase classname="check_application_structure" name="check_that_local_passwords_conf_does_not_exist" time="0.001571">
+      <system-out>Check that local/passwords.conf or `users//local/passwords.conf does not exist.
+ Password files are not transferable between instances.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_configuration_files" name="check_collections_conf_for_specified_name_field_type" time="0.000801">
+      <system-out>Check that the field.&lt;name&gt; type in collections.conf does not include boolean.Use bool instead.</system-out>
+    </testcase>
+    <testcase classname="check_configuration_files" name="check_config_file_parsing_public" time="0.002611">
+      <system-out>Check that all config files parse cleanly- no trailing whitespace after
+ continuations, no duplicated stanzas or options.</system-out>
+    </testcase>
+    <testcase classname="check_configuration_files" name="check_manipulation_outside_of_app_container" time="0.000981">
+      <system-out>Check that app conf files do not point to files outside the app container.
+ Because hard-coded paths won't work in Splunk Cloud, we don't consider to
+ check absolute paths.</system-out>
+    </testcase>
+    <testcase classname="check_configuration_files" name="check_no_default_stanzas" time="0.000982">
+      <system-out>Check that app does not contain any .conf files that create global
+ definitions using the [default] stanza.</system-out>
+    </testcase>
+    <testcase classname="check_indexes_configuration_file" name="check_coldToFrozenScript_has_valid_python_version_property" time="0.001229">
+      <system-out>Check that all the coldToFrozenScript in indexes.conf are explicitly set the python.version to python3.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_indexes_configuration_file" name="check_indexes_conf_properties" time="0.000514">
+      <system-out>Check that indexes.conf only contains the required 'homePath' , 'coldPath', and 'thawedPath' properties or the optional 'frozenTimePeriodInSecs', 'disabled', 'datatype' and 'repFactor' properties. All other properties are prohibited. Also, if repFactor property exists, it's value should be 'auto'. This check is cloud only because indexes are not allowed via check_indexes_conf_does_not_exist.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_indexes_configuration_file" name="check_lower_cased_index_names" time="0.000493">
+      <system-out>Check that all index names consist only of lowercase characters, numbers, underscores and hyphens. They cannot begin with an underscore or hyphen, or contain the word 'kvstore'. If index names have any uppercase characters any attempts to edit the index in the UI will cause a duplicate index stanza creation which will cause many errors in Splunk.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_indexes_configuration_file" name="check_validate_default_indexes_not_modified" time="0.000655">
+      <system-out>Check that no default Splunk indexes are modified by the app.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_meta_files" name="check_kos_are_accessible" time="0.001064">
+      <system-out>Check that knowledge objects with access control restrictions defined in *.meta files are accessible to customers in Splunk Cloud.</system-out>
+      <warning message="check_messages.py">The 'admin' role is not available to Splunk Cloud customers. Please consider also including the 'sc_admin' role if you want Splunk Cloud customer administrators to be able to access this knowledge object File: metadata/default.meta Line Number: 5</warning>
+    </testcase>
+    <testcase classname="check_props_configuration_file" name="check_pretrained_sourcetypes_have_only_allowed_transforms" time="0.000436">
+      <system-out>Check that pretrained sourctypes in props.confhave only 'TRANSFORM-' or 'SEDCMD' settings,and that those transforms only modify the host, source, or sourcetype.</system-out>
+    </testcase>
+    <testcase classname="check_props_configuration_file" name="check_props_conf_has_no_ingest_eval_lookups" time="0.001">
+      <system-out>Check that the props.conf does not contain lookup() usage in INGEST_EVAL options.
+ This feature is not available in Splunk Cloud.
+For example:
+[lookup1]
+ INGEST_EVAL= status_detail=lookup("http_status.csv", json_object("status", status), json_array("status_description"))</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_server_configuration_file" name="check_server_conf_only_contains_custom_conf_sync_stanzas_or_diag_stanza" time="0.000539">
+      <system-out>Check that server.conf in an app is only allowed to contain: 1. conf_replication_include.\&lt;custom_conf_files&gt; in [shclustering] stanza 2. or EXCLUDE-\&lt;class&gt; property in [diag] stanza,</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_alert_actions_config" name="check_alert_actions_exe_exist" time="0.001431">
+      <system-out>Check that each custom alert action has a valid executable. If it does, further check
+ if the executable is Python script. If it does, further check it's Python 3 compatible.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_alert_actions_config" name="check_for_explict_exe_args" time="0.000191">
+      <system-out>Check whether any custom alert actions have executable arguments.</system-out>
+    </testcase>
+    <testcase classname="check_alert_actions_config" name="check_for_payload_format" time="0.000164">
+      <system-out>Check that each custom alert action's payload format has a value of xml
+ or json.</system-out>
+    </testcase>
+    <testcase classname="check_custom_commands" name="check_command_scripts_python_version" time="0.000945">
+      <system-out>Check that commands.conf must explicitly define the python.version to be python3 for each python-scripted custom command.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_workflow_actions" name="check_workflow_actions_link_uri_does_not_use_http_protocol" time="0.001179">
+      <system-out>Check that for each workflow action in workflow_actions.conf the link.uri property uses the https protocol for external links. Unencrypted http is permitted for internal links.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_rest_endpoints" name="check_restmap_conf_exists" time="0.000686">
+      <system-out>Check that restmap.conf file exists at default/restmap.conf, local/restmap.conf and users//local/restmap.conf` when using REST endpoints.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_rest_endpoints" name="check_rest_handler_python_executable_exists" time="0.000741">
+      <system-out>Check that python version is python3 for executables in restmap.conf.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_rest_endpoints" name="check_rest_handler_scripts_exist_for_cloud" time="0.001417">
+      <system-out>Check that each stanza in restmap.conf has a matching handler script.if not, throw a warning.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_data_models_config" name="check_for_datamodel_acceleration" time="0.001352">
+      <system-out>Check that the use of accelerated data models do not occur. If data model 
+ acceleration is required, developers should provide directions in documentation
+ for how to accelerate data models from within the Splunk Web GUI.
+data model acceleration</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_python_files" name="check_python_sdk_version" time="0.021141">
+      <system-out>Check that Splunk SDK for Python is up-to-date.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_python_files" name="check_all_python_files_are_well_formed" time="0.001134">
+      <system-out>Check all python files are well formed under python2 and python3 standard</system-out>
+      <manual_check message="check_python_files.py">Python script is not well formed, syntax error found in python script when parser try to parse. Runtime errors and possible style issues could exist when it is executed. Please manual check if the whole app is broken, if yes, fail this app. If syntax error only block part of app's functionality, warn developer to fix it. File: bin/PIL/PdfParser.py</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_built_in_import_function" time="0.010213">
+      <system-out>Check that the python __import__ method is not used in a way that
+ can be exploited (e.g., import(conf_setting) is at risk of code
+ injection).</system-out>
+      <manual_check message="reporter.py">The `__builtin__.__import__` function was detected being used. Please use the `import` keyword instead. Third-Party libraries are exempt from this requirement. File: bin/PIL/features.py Line Number: 27, The `__builtin__.__import__` function was detected being used. Please use the `import` keyword instead. Third-Party libraries are exempt from this requirement. File: bin/PIL/features.py Line Number: 69, The `__builtin__.__import__` function was detected being used. Please use the `import` keyword instead. Third-Party libraries are exempt from this requirement. File: bin/PIL/Image.py Line Number: 422</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_builtin_functions" time="0.044252">
+      <system-out>Check for builtin functions(open, eval, execfile, file) usages in python files</system-out>
+      <manual_check message="reporter.py">The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageFont.py Line Number: 71, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageFont.py Line Number: 182, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/GifImagePlugin.py Line Number: 626, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/GifImagePlugin.py Line Number: 628, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/GifImagePlugin.py Line Number: 635, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/api_info/__init__.py Line Number: 21, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/fpdf/ttfonts.py Line Number: 80, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/fpdf/ttfonts.py Line Number: 460, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageMorph.py Line Number: 231, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageMorph.py Line Number: 242, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: appserver/controllers/report.py Line Number: 91, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/TarIO.py Line Number: 35, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageFile.py Line Number: 95, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageFile.py Line Number: 194, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImagePalette.py Line Number: 124, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImagePalette.py Line Number: 202, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/IcnsImagePlugin.py Line Number: 339, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/IcnsImagePlugin.py Line Number: 368, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/EpsImagePlugin.py Line Number: 64, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/EpsImagePlugin.py Line Number: 108, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/tailer/__init__.py Line Number: 243, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageShow.py Line Number: 138, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/PIL/ImageShow.py Line Number: 176, The following line will be inspected during code review. The `__builtin__.open` module/method can be used to manipulate files outside of the app dir. File: bin/fpdf/fpdf.py Line Number: 52, Suppressed 19 manual_check messages</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_compiled_python" time="0.023435">
+      <system-out>Check that there are no .pyc or .pyo files included in the app.</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_custom_python_interpreters" time="0.009605">
+      <system-out>Check if custom python interpreters could be used in malicious code execution</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_data_compression_and_archiving" time="0.009415">
+      <system-out>check if data compression and archiving libraries could be used to read &amp; write files outside of app dir</system-out>
+      <manual_check message="reporter.py">The following lines should be inspected during code review, `zipfile.ZipFile` could be used to create an archiving object, it can read or write file outside of app dir. File: bin/requestsbak/utils.py Line Number: 245</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_data_persistence" time="0.032273">
+      <system-out>check for data persistence usage which could be used to invoke marshall function call</system-out>
+      <manual_check message="reporter.py">The following lines should be inspected during code review, `pickle.dump` could be used to serialize and deserialize python object. Check if serialization result will be stored outside of App dir. File: bin/fpdf/fpdf.py Line Number: 542, The following lines should be inspected during code review, `pickle.dump` could be used to serialize and deserialize python object. Check if serialization result will be stored outside of App dir. File: bin/fpdf/fpdf.py Line Number: 1484, The following lines should be inspected during code review, `pickle.load` could be used to serialize and deserialize python object. Check if serialization result will be stored outside of App dir. File: bin/fpdf/fpdf.py Line Number: 53, The following lines should be inspected during code review, `pickle.load` could be used to serialize and deserialize python object. Check if serialization result will be stored outside of App dir. File: bin/fpdf/fpdf.py Line Number: 564</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_debugging_and_profiling" time="0.007507">
+      <system-out>Check if debugging library could be used to execute arbitrary commands</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_file_and_directory_access" time="0.124872">
+      <system-out>Check for possible file and directory access, they could be used in external file manipulation</system-out>
+      <manual_check message="reporter.py">The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/Hdf5StubImagePlugin.py Line Number: 44, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: [], keywords: {} File: bin/PIL/WebPImagePlugin.py Line Number: 60, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 107, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 110, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 115, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 119, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 120, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 123, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 124, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 125, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 126, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 151, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/DdsImagePlugin.py Line Number: 152, The following line will be inspected during code review. The `os.unlink` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/GifImagePlugin.py Line Number: 653, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/WmfImagePlugin.py Line Number: 92, The following line will be inspected during code review. The `os.unlink` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/JpegImagePlugin.py Line Number: 464, The following line will be inspected during code review. The `os.unlink` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/JpegImagePlugin.py Line Number: 781, The following line will be inspected during code review. The `tempfile.mkstemp` module/method can be used to access file/directory outside of the app dir. Function call arguments: [], keywords: {} File: bin/PIL/JpegImagePlugin.py Line Number: 451, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/JpegImagePlugin.py Line Number: 505, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/BlpImagePlugin.py Line Number: 243, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/BlpImagePlugin.py Line Number: 258, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/BlpImagePlugin.py Line Number: 260, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/BlpImagePlugin.py Line Number: 261, The following line will be inspected during code review. The `io.BytesIO.read` module/method can be used to access file/directory outside of the app dir. Function call arguments: ["?"], keywords: {} File: bin/PIL/BlpImagePlugin.py Line Number: 262, Suppressed 86 manual_check messages</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_generic_operating_system_services" time="0.009591">
+      <system-out>check if generic operating system modules could be used to communicate with outside services, files or systems</system-out>
+      <manual_check message="reporter.py">The following lines should be inspected during code review. `logging.handlers.RotatingFileHandler` could be used to receive data from outside or log data to outside. File: bin/log.py Line Number: 45, The following lines should be inspected during code review. `argparse.ArgumentParser.parse_args` could be used to receive data from outside or log data to outside. File: bin/jsonbak/tool.py Line Number: 29</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_hidden_python_files" time="0.00469">
+      <system-out>Check that there are no hidden python files included in the app.</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_importing_modules" time="0.007563">
+      <system-out>Check Python code for importing modules dynamically.</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_internet_protocols_and_support" time="0.005727">
+      <system-out>Check for the use of web server classes, they could be used to start a internal server in current app</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_interprocess_communication_and_networking" time="0.006418">
+      <system-out>check if networking or file manipulation exist in interprocess modules usage</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_optional_operating_system_services" time="0.00275">
+      <system-out>Check for operating system features that are available on selected operating systems only.</system-out>
+      <manual_check message="reporter.py">The following lines should be inspected during code review, operating system feature `mmap.mmap` has been detected. File: bin/PIL/ImageFile.py Line Number: 195</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_plain_text_credentials_in_python" time="0.226908">
+      <system-out>check for plain text credentials disclosure in python files</system-out>
+      <manual_check message="check_python_files.py">The following lines should be inspected during code review, Possible plain text credentials disclosure here, `__author__ = Mariano Reingart &lt;reingart@gmail.com&gt;` File: bin/fpdf/html.py Line Number: 5, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `__author_email__ = me@kennethreitz.org` File: bin/requestsbak/__version__.py Line Number: 11, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `__author__ = Kenneth Reitz` File: bin/requestsbak/__version__.py Line Number: 10, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `__author__ = Bob Ippolito &lt;bob@redivi.com&gt;` File: bin/jsonbak/__init__.py Line Number: 104, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `decoder = BLP2` File: bin/PIL/BlpImagePlugin.py Line Number: 255, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `decoder = BLP2` File: bin/PIL/BlpImagePlugin.py Line Number: 250, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `decoder = BLP2` File: bin/PIL/BlpImagePlugin.py Line Number: 247, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `tableKey =  ` File: appserver/controllers/report.py Line Number: 408, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `tableKey =  ` File: appserver/controllers/report.py Line Number: 435, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `tableKey =  ` File: appserver/controllers/report.py Line Number: 407, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `self.decodermaxblock = 65536` File: bin/PIL/ImageFile.py Line Number: 91, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `self.decodermaxblock = 65536` File: bin/PIL/ImageFile.py Line Number: 235, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `self.codec = jp2` File: bin/PIL/Jpeg2KImagePlugin.py Line Number: 207, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `self.codec = jp2` File: bin/PIL/Jpeg2KImagePlugin.py Line Number: 174, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `self.codec = jp2` File: bin/PIL/Jpeg2KImagePlugin.py Line Number: 168, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 635, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 559, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 485, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 626, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 626, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 634, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 551, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 579, The following lines should be inspected during code review, Possible plain text credentials disclosure here, `fontkey = helveticaBI` File: bin/fpdf/fpdf.py Line Number: 612, Suppressed 9 manual_check messages</manual_check>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_possible_threading" time="2.848496">
+      <system-out>Check for the use of threading, and multiprocesses. Threading or process must be
+ used with discretion and not negatively affect the Splunk installation as a
+ whole.</system-out>
+      <warning message="check_python_files.py">The following line contains subprocess.check_call usage. Use threading and multiprocessing with discretion. File: bin/PIL/GifImagePlugin.py Line Number: 629, The following line contains subprocess.Popen usage. Use threading and multiprocessing with discretion. File: bin/PIL/GifImagePlugin.py Line Number: 636, The following line contains subprocess.Popen usage. Use threading and multiprocessing with discretion. File: bin/PIL/GifImagePlugin.py Line Number: 637, The following line contains subprocess.check_call usage. Use threading and multiprocessing with discretion. File: bin/PIL/JpegImagePlugin.py Line Number: 454, The following line contains subprocess.check_call usage. Use threading and multiprocessing with discretion. File: bin/PIL/JpegImagePlugin.py Line Number: 779, The following line contains subprocess.Popen usage. Use threading and multiprocessing with discretion. File: bin/PIL/IcnsImagePlugin.py Line Number: 340, The following line contains subprocess.call usage. Use threading and multiprocessing with discretion. File: bin/PIL/ImageGrab.py Line Number: 36, The following line contains subprocess.call usage. Use threading and multiprocessing with discretion. File: bin/PIL/ImageGrab.py Line Number: 77, The following line contains subprocess.check_call usage. Use threading and multiprocessing with discretion. File: bin/PIL/EpsImagePlugin.py Line Number: 65, The following line contains subprocess.check_call usage. Use threading and multiprocessing with discretion. File: bin/PIL/EpsImagePlugin.py Line Number: 155, The following line contains subprocess.Popen usage. Use threading and multiprocessing with discretion. File: bin/PIL/ImageShow.py Line Number: 139, The following line contains subprocess.Popen usage. Use threading and multiprocessing with discretion. File: bin/PIL/ImageShow.py Line Number: 178</warning>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_program_frameworks" time="0.002735">
+      <system-out>Check if program frameworks could be used to interface with web part</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_python_multimedia_services" time="0.006377">
+      <system-out>Check if multimedia services module could be used to execute unknown-source multimedia files</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_python_runtime_services" time="0.004179">
+      <system-out>Check if python runtime services could be used to manipulate system python objects</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_python_udp_network_communications" time="0.193125">
+      <system-out>Check for UDP network communication</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_restricted_execution" time="0.002149">
+      <system-out>Check if restricted execution exist in current app</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_reverse_shell_and_backdoor" time="0.002682">
+      <system-out>check if possible reverse shell exist in python code</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_root_privilege_escalation" time="0.009593">
+      <system-out>Check possible root privilege escalation</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_for_unencrypted_network_communications" time="0.010739">
+      <system-out>Check that all network communications are encrypted</system-out>
+    </testcase>
+    <testcase classname="check_python_files" name="check_python_httplib2_version" time="0.022477">
+      <system-out>Check python httplib2 version.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_python_files" name="check_python_untrusted_xml_functions" time="0.007618">
+      <system-out>Check for untrusted xml usages in python libraries</system-out>
+    </testcase>
+    <testcase classname="check_addon_builder_config" name="check_for_addon_builder_version" time="0.000611">
+      <system-out>Check that the addon_builder.conf contains an builder version number between 4.1.3 and 4.1.4 in the [base] stanza. Ensure that apps built with Add-on Builder are maintained with an up-to-date version of Add-on Builder.</system-out>
+      <skipped/>
+    </testcase>
+    <testcase classname="check_bias_language" name="check_for_bias_language" time="2.469158">
+      <system-out>Check that the app does not include any bias words.</system-out>
+      <warning message="check_bias_language.py">Bias language is found in the app. - `&lt;&lt;&lt;MASTER&gt;&gt;&gt;` branch contains the latest code, be aware of pos... (README.md:18) [master]. File: README.md Line Number: 18, Bias language is found in the app. "&lt;&lt;&lt;MASTER&gt;&gt;&gt;" (bin/api_info/endpoints.json:2019) [master]. File: endpoints.json Line Number: 2019, Bias language is found in the app. # &lt;&lt;&lt;MASTER&gt;&gt;&gt; version for Pillow (bin/PIL/_version.py:1) [Master]. File: _version.py Line Number: 1, Bias language is found in the app. # See https://github.com/GNOME/gimp/blob/&lt;&lt;&lt;MASTER&gt;&gt;&gt;/devel-docs/... (bin/PIL/GbrImagePlugin.py:17) [master]. File: GbrImagePlugin.py Line Number: 17, Bias language is found in the app. # https://github.com/imagej/ImageJA/blob/&lt;&lt;&lt;MASTER&gt;&gt;&gt;/src/main/ja... (bin/PIL/TiffImagePlugin.py:119) [master]. File: TiffImagePlugin.py Line Number: 119, Bias language is found in the app. def __init__(self, &lt;&lt;&lt;MASTER&gt;&gt;&gt;, im): (bin/PIL/ImageTk.py:292) [master]. File: ImageTk.py Line Number: 292, Bias language is found in the app. tkinter.Label.__init__(self, &lt;&lt;&lt;MASTER&gt;&gt;&gt;, image=self.image, bg="... (bin/PIL/ImageTk.py:297) [master]. File: ImageTk.py Line Number: 297, Bias language is found in the app. self.image = BitmapImage(im, foreground="white", &lt;&lt;&lt;MASTER&gt;&gt;&gt;=&lt;&lt;&lt;... (bin/PIL/ImageTk.py:294) [master]. File: ImageTk.py Line Number: 294, Bias language is found in the app. self.image = PhotoImage(im, &lt;&lt;&lt;MASTER&gt;&gt;&gt;=&lt;&lt;&lt;MASTER&gt;&gt;&gt;) (bin/PIL/ImageTk.py:296) [master]. File: ImageTk.py Line Number: 296, Bias language is found in the app. // Absorb the &lt;&lt;&lt;MASTER&gt;&gt;&gt; measurements (appserver/static/js/libs/chart.js:13815) [master]. File: chart.js Line Number: 13815, Bias language is found in the app. // Absorb the &lt;&lt;&lt;MASTER&gt;&gt;&gt; measurements (appserver/static/js/libs/chart.js:14316) [master]. File: chart.js Line Number: 14316, Bias language is found in the app. // Absorb the &lt;&lt;&lt;MASTER&gt;&gt;&gt; measurements (appserver/static/js/libs/chart.js:10289) [master]. File: chart.js Line Number: 10289, Bias language is found in the app. // inspired by https://github.com/dordille/moment-isoduration/blo... (appserver/static/js/libs/moment.js:4466) [master]. File: moment.js Line Number: 4466, Bias language is found in the app. * https://github.com/jtblin/angular-chart.js/blob/&lt;&lt;&lt;MASTER&gt;&gt;&gt;/LI... (appserver/static/js/libs/angular-chart.js:8) [master]. File: angular-chart.js Line Number: 8, Bias language is found in the app. // So I created a &lt;&lt;&lt;BLACKLIST&gt;&gt;&gt; of userAgents. Yes, yes. Browse... (appserver/static/js/libs/dropzone/dropzone.js:2991) [blacklist]. File: dropzone.js Line Number: 2991, Bias language is found in the app. * License : https://github.com/eligrey/FileSaver.js/blob/&lt;&lt;&lt;MASTE... (appserver/static/js/libs/file-saver/file-saver.js:22) [master]. File: file-saver.js Line Number: 22, Bias language is found in the app. // Absorb the &lt;&lt;&lt;MASTER&gt;&gt;&gt; measurements (appserver/static/js/libs/charts/chart.js:13815) [master]. File: chart.js Line Number: 13815, Bias language is found in the app. // Absorb the &lt;&lt;&lt;MASTER&gt;&gt;&gt; measurements (appserver/static/js/libs/charts/chart.js:14316) [master]. File: chart.js Line Number: 14316, Bias language is found in the app. // Absorb the &lt;&lt;&lt;MASTER&gt;&gt;&gt; measurements (appserver/static/js/libs/charts/chart.js:10289) [master]. File: chart.js Line Number: 10289, Bias language is found in the app. * https://github.com/jtblin/angular-chart.js/blob/&lt;&lt;&lt;MASTER&gt;&gt;&gt;/LI... (appserver/static/js/libs/charts/angular-chart.js:8) [master]. File: angular-chart.js Line Number: 8, Bias language is found in the app. log: 'timestamp:2019-09-03T13:22:27.950+0000 rule:level:7 rule:de... (appserver/static/js/directives/wz-logtest/wz-logtest.js:63) [master]. File: wz-logtest.js Line Number: 63, Bias language is found in the app. full event: 'timestamp:2019-09-03T13:22:27.950+0000 rule:level:7 ... (appserver/static/js/directives/wz-logtest/wz-logtest.js:59) [master]. File: wz-logtest.js Line Number: 59, Bias language is found in the app. label="&lt;&lt;&lt;MASTER&gt;&gt;&gt; node IP address" (appserver/static/js/controllers/management/configuration/cluster/cluster.html:84) [Master]. File: cluster.html Line Number: 84, Bias language is found in the app. &lt;span class="font-size-16"&gt;&lt;&lt;&lt;MASTER&gt;&gt;&gt; node settings&lt;/span&gt; (appserver/static/js/controllers/management/configuration/cluster/cluster.html:45) [Master]. File: cluster.html Line Number: 45, Suppressed 3 warning messages</warning>
+    </testcase>
+    <testcase classname="check_malware" name="check_hostnames_and_ips" time="1.690825">
+      <system-out>Check that no sensitive hostnames/IPs are stored in the app.</system-out>
+      <warning message="check_malware.py">PRIVATE IP 192.168.1.1 is found in bin/requestsbak/utils.py:617 File: bin/requestsbak/utils.py Line Number: 617, PRIVATE IP 255.255.255.0 is found in bin/requestsbak/utils.py:632 File: bin/requestsbak/utils.py Line Number: 632, PUBLIC IP 1.5.75.75 is found in appserver/static/js/directives/wz-svg/wz-svg.html:110 File: appserver/static/js/directives/wz-svg/wz-svg.html Line Number: 110, PUBLIC IP 7.106.5.5 is found in appserver/static/js/directives/wz-svg/wz-svg.html:359 File: appserver/static/js/directives/wz-svg/wz-svg.html Line Number: 359, PUBLIC IP 1.128.214.61 is found in appserver/static/js/directives/wz-svg/wz-svg.html:637 File: appserver/static/js/directives/wz-svg/wz-svg.html Line Number: 637</warning>
+    </testcase>
+    <testcase classname="check_potentially_harmful_operations" name="check_destructive_commands" time="1.126539">
+      <system-out>Check for the use of malicious shell commands in configuration files or shell scripts to
+ corrupt the OS or Splunk instance. Other scripting languages are covered by other checks.</system-out>
+    </testcase>
+    <testcase classname="check_security" name="check_for_environment_variable_use_in_python" time="0.620018">
+      <system-out>Check for environment variable manipulation and attempts to monitor
+ sensitive environment variables.</system-out>
+      <manual_check message="check_security.py">Environment variable being used in bin/utils/config.py:23: os.environ. File: bin/utils/config.py Line Number: 23, Environment variable being used in bin/PIL/ImageFont.py:651: os.environ.get. File: bin/PIL/ImageFont.py Line Number: 651, Environment variable being used in bin/PIL/ImageFont.py:655: os.environ.get. File: bin/PIL/ImageFont.py Line Number: 655, Environment variable being used in bin/PIL/ImageShow.py:154: os.environ.get. File: bin/PIL/ImageShow.py Line Number: 154, Environment variable being used in bin/PIL/Image.py:3090: os.environ. File: bin/PIL/Image.py Line Number: 3090</manual_check>
+    </testcase>
+    <testcase classname="check_security" name="check_for_insecure_http_calls_in_python" time="0.021457">
+      <system-out>Check for insecure HTTP calls in Python.</system-out>
+      <manual_check message="reporter.py">Possible insecure HTTP Connection. Match: urllib.urlopen Positional arguments, ["?"]; Keyword arguments, {} File: bin/fpdf/fpdf.py Line Number: 1771, Possible insecure HTTP Connection. Match: urllib.request.urlopen Positional arguments, ["?"]; Keyword arguments, {} File: bin/fpdf/fpdf.py Line Number: 1771</manual_check>
+    </testcase>
+    <testcase classname="check_security" name="check_for_secret_disclosure" time="29.382812">
+      <system-out>Check for passwords and secrets.</system-out>
+      <manual_check message="check_security.py">The following line will be inspected during code review.Possible secret disclosure found. Match: passAuth = splunk-system-user File: default/inputs.conf Line Number: 9, The following line will be inspected during code review.Possible secret disclosure found. Match: passAuth = splunk-system-user File: default/inputs.conf Line Number: 16, The following line will be inspected during code review.Possible secret disclosure found. Match:     const editPassword = async File: appserver/static/js/services/security/user/userService.js Line Number: 92, The following line will be inspected during code review.Possible secret disclosure found. Match:       this.scope.userPassword = '' File: appserver/static/js/controllers/security/users/usersCtrl.js Line Number: 27, The following line will be inspected during code review.Possible secret disclosure found. Match:         (this.scope.userPassword == File: appserver/static/js/controllers/security/users/usersCtrl.js Line Number: 131, The following line will be inspected during code review.Possible secret disclosure found. Match:           this.scope.userPassword === File: appserver/static/js/controllers/security/users/usersCtrl.js Line Number: 154, The following line will be inspected during code review.Possible secret disclosure found. Match:           this.scope.userPassword === File: appserver/static/js/controllers/security/users/usersCtrl.js Line Number: 155, The following line will be inspected during code review.Possible secret disclosure found. Match:         if (this.scope.userPassword === File: appserver/static/js/controllers/security/users/usersCtrl.js Line Number: 208, The following line will be inspected during code review.Possible secret disclosure found. Match:         this.scope.userPassword = '' File: appserver/static/js/controllers/security/users/usersCtrl.js Line Number: 278</manual_check>
+    </testcase>
+    <testcase classname="check_security" name="check_for_sensitive_info_in_url" time="1.378226">
+      <system-out>Check for sensitive information being exposed in transit via URL query string parameters</system-out>
+    </testcase>
+    <testcase classname="check_security" name="check_for_supported_tls" time="0.003127">
+      <system-out>Check that all outgoing connections use TLS in accordance to Splunk Cloud Platform policy.</system-out>
+    </testcase>
+    <testcase classname="check_security" name="check_symlink_outside_app" time="0.067073">
+      <system-out>Check no symlink points to the file outside this app</system-out>
+    </testcase>
+    <testcase classname="check_source_and_binaries" name="check_for_bin_files" time="0.057791">
+      <system-out>Check that files outside of the bin/ and appserver/controllers directory do not have execute
+ permissions.
+ Splunk Cloud is a Linux-based platform, Splunk recommends 644 for all app files outside of the bin/ directory, 644 for
+ scripts within the bin/ directory that are invoked using an interpreter (e.g. python my_script.py
+ or sh my_script.sh), and 755 for scripts within the bin/ directory that are invoked directly
+ (e.g. ./my_script.sh or ./my_script).</system-out>
+    </testcase>
+    <testcase classname="check_source_and_binaries" name="check_for_executable_flag" time="0.063139">
+      <system-out>Check that files outside of the bin/ directory do not appear to be
+ executable according to the Unix file command. From man file: files have
+ a ``magic number'' stored in a particular place near the beginning of the
+ file that tells the UNIX operating system that the file is a binary
+ executable.</system-out>
+      <manual_check message="check_source_and_binaries.py">The executable will be inspected during code review: File: appserver/static/js/libs/codemirror-conv/javascript.js</manual_check>
+    </testcase>
+    <testcase classname="check_xml_files" name="check_for_xml_embedded_javascript" time="0.019742">
+      <system-out>Check any XML files that embed JavaScript via CDATA for compliance
+ with Splunk Cloud security policy.</system-out>
+    </testcase>
+    <testcase classname="check_xml_files" name="check_that_all_xml_files_are_well_formed" time="0.016454">
+      <system-out>Check that all XML files are well-formed.</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
